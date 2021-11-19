@@ -1,5 +1,6 @@
 package cz.educanet.lights.out.presentation.controllers;
 
+import cz.educanet.lights.out.Game;
 import cz.educanet.lights.out.domain.interfaces.ILightsOut;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,8 +28,8 @@ public class GameController {
     @FXML
     public void initialize() {
         // TODO: Change here with your own impl
-        game = null;
-        // TODO: Change here with your own impl
+        game = new Game();
+
 
         if (game != null) {
             cells = new Button[SIZE][SIZE];
