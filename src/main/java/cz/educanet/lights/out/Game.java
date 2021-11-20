@@ -19,12 +19,12 @@ public class Game implements ILightsOut {
         int boolCount = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
-                if (getGrid()[i][j] == true) {
+                if (getGrid()[i][j]) {
                     boolCount++;
                 }
             }
         }
-        if (boolCount == 24) return true;
+        if (boolCount == 25) return true;
         return false;
     }
 
@@ -42,26 +42,23 @@ public class Game implements ILightsOut {
         return arr;
     }
 
-    //if (x == 0)           Levá                0
-    //if (x == 0 && y == 4) Levá dole           11
-    //if (x == 0 && y == 0) Levá nahoře         22
-    //if (y == 0)           Nahoře              0
-    //if (x == 4 && y == 0) Nahoře vpravo       33
-    //if (x == 0 && y == 0) Nahoře vlevo        22
-    //if (x == 4)           Pravá               0
-    //if (y == 4)           Pravá nahoře        33
-    //                      Pravá dole          44
-    //                      Dole                0
-    //                      Dole vpravo         44
-    //                      Dole vlevo          11
 
 
-    @Override                            // true == je zhaslí
-    public void makeMove(int x, int y) { // false == není zhaslí
-        if (x == 0){
-            if (arr[x][y]){
+    @Override                            // true == je off
+    public void makeMove(int x, int y) { // false == není on
+        arr[x][y] = !arr[x][y];
 
-            }
+        if (x + 1 < 5){
+            arr[x + 1][y] = !arr[x + 1][y];
+        }
+        if (x - 1 > -1){
+            arr[x - 1][y] = !arr[x - 1][y];
+        }
+        if (y + 1 <5) {
+            arr[x][y + 1] = !arr[x][y + 1];
+        }
+        if (y - 1 >-1){
+            arr[x][y - 1] = !arr[x][y - 1];
         }
 
         System.out.println(x);
